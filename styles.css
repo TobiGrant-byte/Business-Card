@@ -1,58 +1,65 @@
-/* === Global Body Styling === */
+/* === General Page Setup === */
 body {
   font-family: "Alan Sans", sans-serif;
   text-align: center;
-  margin: 0;
-  height: 100vh;
+  background: radial-gradient(circle at top left, #001133, #000814, #000);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at top left, #001f3f 0%, #000814 100%);
-  overflow: hidden;
+  margin: 0;
+  color: #fff;
 }
 
-/* === Glass Card Container === */
+/* === Glass Card === */
 .card {
-  background: rgba(0, 20, 60, 0.3);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
-  box-shadow:0 0 20px rgba(0, 200, 255, 0.3),inset 0 0 30px rgba(0, 100, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 200, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 30px;
-  width: 340px;
-  color: #d0eaff;
+  width: 320px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: floatCard 6s ease-in-out infinite;
 }
 
-/* === Neon Glow on Hover === */
-.card:hover {
-  transform: scale(1.02);
-  box-shadow:
-    0 0 30px rgba(0, 200, 255, 0.6),
-    inset 0 0 40px rgba(0, 100, 255, 0.2);
+/* === Floating Animation === */
+@keyframes floatCard {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  }
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 200, 255, 0.45);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  }
 }
 
-/* === Glossy Shine Effect === */
+/* === Glossy Shine on Hover === */
 .card::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -80%;
+  left: -75%;
   width: 50%;
   height: 100%;
   background: linear-gradient(
     120deg,
-    rgba(0, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.2),
     rgba(255, 255, 255, 0)
   );
   transform: skewX(-25deg);
   transition: 0.8s;
 }
 .card:hover::before {
-  left: 130%;
+  left: 125%;
 }
 
 /* === Profile Image === */
@@ -60,79 +67,106 @@ body {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 3px solid rgba(0, 200, 255, 0.7);
-  box-shadow: 0 0 20px rgba(0, 200, 255, 0.4);
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
   object-fit: cover;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-/* === Text Styling === */
-h1 {
-  color: #00eaff;
-  margin-bottom: 10px;
-  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+/* === Lists === */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
 }
-
-h2, p, li, a {
+ul li {
+  margin: 8px 0;
   color: #cce7ff;
-}
-
-a {
-  text-decoration: none;
-  color: #00d9ff;
-  font-weight: 500;
-}
-a:hover {
-  color: #00ffff;
-  text-shadow: 0 0 10px #00ffff;
+  text-shadow: 0 0 5px rgba(0, 200, 255, 0.3);
 }
 
 /* === Input Field === */
 .big-input {
   width: 80%;
-  margin-top: 15px;
-  border: 1px solid rgba(0, 200, 255, 0.5);
+  margin-top: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.1);
-  color: #d0eaff;
+  color: white;
   border-radius: 8px;
   padding: 10px;
   font-family: "Alan Sans", sans-serif;
   font-size: 15px;
   outline: none;
   transition: all 0.3s ease;
-  box-shadow: inset 0 0 10px rgba(0, 200, 255, 0.1);
 }
 .big-input::placeholder {
-  color: rgba(200, 230, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
 }
 .big-input:focus {
-  border-color: #00eaff;
-  box-shadow: 0 0 15px rgba(0, 200, 255, 0.4);
+  border-color: rgba(0, 200, 255, 0.8);
+  background: rgba(255, 255, 255, 0.2);
 }
 
-/* === Button === */
+/* === Buttons === */
 button {
-  background: rgba(0, 200, 255, 0.2);
-  color: #d0eaff;
-  border: 1px solid rgba(0, 200, 255, 0.4);
+  background-color: rgba(0, 200, 255, 0.2);
+  color: #fff;
+  border: none;
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 15px;
-  font-size: 15px;
+  margin-top: 10px;
   backdrop-filter: blur(5px);
-  text-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
 }
 button:hover {
-  background: rgba(0, 200, 255, 0.4);
-  color: #fff;
-  box-shadow: 0 0 20px rgba(0, 200, 255, 0.6);
+  background-color: rgba(0, 200, 255, 0.4);
   transform: scale(1.05);
+  animation: glowPulse 1.5s infinite alternate;
 }
 
-ul {
-  list-style: none;   /* removes the bullets */
-  padding: 0;         /* removes default left indentation */
-  margin: 0;          /* optional: cleans up spacing */
+/* === Glowing Pulse Effect for Button === */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.3);
+  }
+}
+
+/* === Mobile Fixes === */
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .framed-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2, p, li {
+    font-size: 1rem;
+  }
+
+  .big-input {
+    width: 100%;
+  }
 }
